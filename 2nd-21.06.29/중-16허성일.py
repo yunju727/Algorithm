@@ -1,41 +1,33 @@
-#n입력받기
-n=int(input())
+import sys
 
-#단어 입력받을 리스트 만들기
-words=[]
+class Stack:
+    def __init__(self):
+        self.s=[]
+    def push(self, x):
+        self.s.append(x)
+    def pop(self):
+        return self.s.pop() if self.s else -1
+    def size(self):
+        return len(self.s)
+    def empty(self):
+        return 0 if self.s else 1
+    def top(self):
+        return self.s[-1] if self.s else -1
 
-#단어 입력받기
+s=Stack()
+n = int(sys.stdin.readline())
 for i in range(n):
-  words.append(input())
-
-#딕셔너리 초기화하기
-dict={}
-#딕셔너리에 알파벳당 숫자 집어넣기
-for word in words:
-  k=len(word)-1
-  for s in word:
-    if s in dict:
-      dict[s]+=pow(10,k)
+    com = sys.stdin.readline().split()
+    if com[0]=="push":
+        s.push(com[1])
+    elif com[0]=="top":
+        print(s.top())
+    elif com[0]=="size":
+        print(s.size())
+    elif com[0]=="empty":
+        print(s.empty())
+    elif com[0]=="pop":
+        print(s.pop())
     else:
-      dict[s]=pow(10,k)
-    k-=1
-
-#숫자 리스트 초기화하기
-nums=[]
-
-#사전의 값들만으로 이루어진 리스트 초기화하기
-for value in dict.values():
-  nums.append(value)
-
-#숫자 큰순으로 정렬하기
-nums.sort(reverse=True)
-
-#출력할 값과 곱해야하는 수 초기화하기
-result,t=0,9
-
-#값 구하기
-for i in range(len(nums)):
-  result+=nums[i]*t
-  t-=1
-
-print(result)
+        print("Error command")
+    
