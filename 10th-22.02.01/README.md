@@ -3,6 +3,7 @@
 파일 업로드
 
 ex) 
-bronze-17김태우.py commit message 02.01. 17:55 (각자 문제 해결 시간)
 
-silver-17김태우.c
+<file name> bronze-17김태우.py <commit message> 02.01. 17:55 (각자 문제 해결 시간)
+
+<file name> silver-17김태우.c <commit message> 02.01. 18:55
