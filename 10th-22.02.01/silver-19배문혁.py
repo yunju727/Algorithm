@@ -1,3 +1,5 @@
+## BOJ 2579
+
 # 2021D
 import copy
 from pip import List
@@ -14,7 +16,7 @@ value = [
 	for _ in range(n)
 ]
 list_padding(value, len(value))
-dp = copy.deepcopy(value)
+dp = copy.deepcopy(value) # 명시적 코드 귀찮으면 dp = value[:] (마찬가지로 깊은 복사, 값 복사)
 dp[1] += value[0]
 dp[2] += max(value[1], value[0])
 for i in range(3, n):
